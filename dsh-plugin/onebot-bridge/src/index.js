@@ -36,7 +36,9 @@ import { resolvePersona, VARIABLE as PERSONA_VARIABLE } from './persona.js'
 
 export const name = 'onebot-bridge'
 // 看门狗用 ctx.interval（au_rabot 同款）。没有 timer 就没法定时巡检，宁可不启动也别野跑。
-export const inject = ['timer']
+// 看门狗用 ctx.interval（au_rabot 同款）；人格变量要 systemPrompt 服务。
+// 缺 systemPrompt 时 cordis 会在访问 ctx.systemPrompt 时报 "cannot get property ... without inject"。
+export const inject = ['timer', 'systemPrompt']
 
 const WATCHDOG_MS = 30_000
 const STATE_PATH = '/onebot-bridge/api/state'
@@ -115,7 +117,14 @@ export function apply(ctx) {
 
   // ---------- 人格：提示词变量（preset 的 persona 行渲染它） ----------
   try {
-    const sp = ctx.systemPrompt || ctx.get?.('systemPrompt')
+    let sp = null
+    try {
+      sp = ctx.systemPrompt || ctx.get?.('systemPrompt')
+    } catch (error) {
+      // inject 声明了但宿主没提供该服务时会抛错；人格变量是可选增强，不能因此让插件起不来。
+      log.warn('宿主没有 systemPrompt 服务，人格变量跳过：', error?.message || error)
+      sp = null
+    }
     if (sp && typeof sp.variable === 'function') {
       ctx.effect(
         () => sp.variable(PERSONA_VARIABLE, () => resolvePersona(getConfig(), { log }).text),

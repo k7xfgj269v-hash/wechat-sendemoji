@@ -343,11 +343,31 @@ func (r *AutomationRuntime) Close() error {
 	return r.closeErr
 }
 
+// automationInboundChatEnabled 控制「微信入向消息是否触发 onebot 自己的 AI 对话循环」。
+//
+// 默认 **关闭**：微信侧的对话循环应由 DSH 驱动（见 dsh-plugin/onebot-bridge），
+// onebot 只当工具提供者与协议执行者。两套循环并存会导致同一句话被回两次、
+// 行为不一致、审计串味。
+//
+// 置 ONEBOT_INBOUND_AUTOMATION=1 可以恢复旧行为（内部规则引擎/离线批处理场景）。
+func automationInboundChatEnabled() bool {
+	switch strings.ToLower(strings.TrimSpace(os.Getenv("ONEBOT_INBOUND_AUTOMATION"))) {
+	case "1", "true", "yes", "on":
+		return true
+	default:
+		return false
+	}
+}
+
 func automationEnqueueEvent(event MessageEvent) {
 	automationRuntimeMu.RLock()
 	runtime := automationRuntime
 	automationRuntimeMu.RUnlock()
 	if runtime == nil {
+		return
+	}
+	if !automationInboundChatEnabled() {
+		// 入向事件仍然落库（CRM/审计照旧），只是不再喂给 onebot 自己的对话循环。
 		return
 	}
 	select {

@@ -192,7 +192,12 @@
       return '<img alt="" style="' + IMAGE_STYLE + '" src="' + escapeHTML(url) + '">';
     }
     if (state.imageFailed[md5]) {
-      return '<span style="' + META_STYLE + '">读图失败</span>';
+      // 收藏表情的原图在磁盘上是账号级 AES 加密的（缺 seed 解不开），
+      // 但发送只需要 md5 —— 所以退化成一个可辨认的占位块，而不是干巴巴的"读图失败"。
+      var label = escapeHTML(String(item.name || md5.slice(0, 6)));
+      var tag = (item.tags && item.tags.length) ? escapeHTML(String(item.tags[0])) : "表情";
+      return '<span style="' + META_STYLE + ';display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:56px" title="' +
+        escapeHTML(md5) + '"><strong style="font-size:12px">' + label + '</strong><small style="opacity:.7">' + tag + '</small></span>';
     }
     return '<span style="' + META_STYLE + '" data-sticker-thumb="' + escapeHTML(md5) + '">载入中...</span>';
   }

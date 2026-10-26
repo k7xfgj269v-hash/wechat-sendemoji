@@ -136,6 +136,9 @@ func TestCaptureNormalizedInboundConcurrentDuplicate(t *testing.T) {
 }
 
 func TestCaptureNormalizedInboundDuplicateDoesNotEnqueueAgain(t *testing.T) {
+	// 入向自动化默认关闭（微信侧对话循环由 DSH 驱动）。本用例验证的是"入队"语义，
+	// 与队列/去重相关，因此显式打开该开关。
+	t.Setenv("ONEBOT_INBOUND_AUTOMATION", "1")
 	automationQueue := make(chan MessageEvent, 2)
 	automationRuntimeMu.Lock()
 	previousRuntime := automationRuntime
@@ -648,6 +651,9 @@ func TestHRWorkbenchInboundEnsuresRunBeforeCheckpoint(t *testing.T) {
 }
 
 func TestHRWorkbenchInboundCrashReplayIsExactlyOnceByMessageKey(t *testing.T) {
+	// 入向自动化默认关闭（微信侧对话循环由 DSH 驱动）。本用例验证的是"入队"语义，
+	// 与队列/去重相关，因此显式打开该开关。
+	t.Setenv("ONEBOT_INBOUND_AUTOMATION", "1")
 	automationQueue := make(chan MessageEvent, 2)
 	automationRuntimeMu.Lock()
 	previousRuntime := automationRuntime

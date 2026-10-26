@@ -852,3 +852,59 @@ rizin -q -N -e scr.color=0 -c 's 0x43fc6d4; af; pdf' /private/tmp/wxre/wechat.ar
 | `+0x0c`（`EMOJI_CMD_DOMAIN`） | `0x6e` | 沿用 img/video/voice/file/appattach/reply 的既验证值；**真实微信任务是 `0x0`**（§2.6），若发送失败先试改成 `0` |
 
 **PB 未闭合**：`protoHex` 由 T4 的 `BuildEmojiMsgProto` 生成，字段号/顺序仍是 §10.3 的未解项。
+
+---
+
+## §2.12 收藏表情原图解密（外部方案，未在本机验证）
+
+> 来源：[CN-Grace/Wechat-Emoticon-Parser](https://github.com/CN-Grace/Wechat-Emoticon-Parser) `v4.0-plus`（MIT）。
+> 该项目目标是 **Windows 4.1.x**；下面是其中与 macOS 无关的**算法**部分，本机尚未跑通（原因见末尾）。
+
+### 加密参数
+
+`business/emoticon/` 下 `Persist` / `PersistStore` / `Thumb` / `ThumbStore` 四个目录
+共用**同一把密钥**（文件名为内容 md5）：
+
+```
+算法: AES-128-CBC + PKCS7
+key = IV = md5( f"{seed}{wxid}EMOTICON" ) 的 hex 解码后的前 16 字节
+```
+
+| 参数 | 来源 |
+|---|---|
+| `seed` | 微信进程内存里的账号级常量，**8~10 位十进制数字串**，位于主进程堆（wxid 字符串附近） |
+| `wxid` | 数据目录名去掉 `_b487` 之类后缀 |
+
+验证方式：拿任意表情文件的前 16 字节（C0）用候选 key 做 AES-128-CBC(key=IV) 解密，
+首 4 字节命中魔数即确认 —— `89 50 4e 47`(PNG) / `47 49 46 38`(GIF) / `ff d8 ff`(JPEG) / `wxgf`。
+
+### 与本文前述"aes_key 拿不到"的关系
+
+之前判断"必须从 fav 表取 `aes_key` 才能解密"是**不完整**的：
+fav 表的 `aes_key` 是**每条表情各自的**密钥；而磁盘缓存这一层用的是**账号级派生 key**。
+所以不需要 fav 表、不需要 SQLCipher 解密，只要有 `seed` 就能批量还原全部收藏表情原图。
+
+### 附带能力（同源方案）
+
+- `PersistStore` 容器文件 = 多个表情按魔数连续拼接，需按 `PNG→IEND` / `GIF→0x3B` / `JPEG→EOI` 流式分割
+- `wxgf` 文件 = 魔数后是裸 H.265 流（从 `00 00 00 01 40 01` VPS 处截取），需 ffmpeg 取首帧转 GIF
+- 聊天图片 V2 `.dat`：`key = md5(f"{seed}{wxid}")[:16]`（16 字符 ASCII），AES-128-ECB + 明文区 + 单字节 XOR 尾部
+
+### 本机未跑通的原因
+
+`seed` 需要从**运行中的微信进程内存**里扫（该项目的 Windows 实现用 `ReadProcessMemory`）。
+macOS 上等价做法是 Frida 扫 `rw-` 区段找数字串，但本次尝试后 **Frida gadget 的脚本注入卡死**
+（进程与 27042 端口仍在，`create_script` 超时），需要重启微信恢复 —— 因此未取得 `seed`。
+
+恢复后按此流程即可（本机已验证可用的工具链）：
+
+```
+1. Frida attach Gadget，enumerateRanges('rw-')，分块读（每块 ≤32MB，避免超时）
+2. 正则 (?:^|[^0-9])([1-9][0-9]{8,9})(?:[^0-9]|$) 收集候选
+3. 对每个候选算 key = md5(f"{seed}{wxid}EMOTICON")[:16]
+4. 用某个 Persist 文件前 16 字节验证魔数
+5. 命中后用这把 key 批量解密全部 Persist / Thumb
+```
+
+⚠️ 扫描时注意：**不要在 Frida 脚本里做长时间同步循环**（本次就是全量扫内存导致注入超时、会话卡死）。
+必须用 `setInterval` 分块，或改成在 Python 侧逐块驱动。

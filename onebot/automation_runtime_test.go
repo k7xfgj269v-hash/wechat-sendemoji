@@ -536,6 +536,8 @@ func TestAutomationRuntimeWorkerDrainsAuditAfterScheduledActionRecovery(t *testi
 }
 
 func TestAutomationEnqueueEventBackpressuresUntilQueueDrains(t *testing.T) {
+	// 入向自动化默认关闭（DSH 驱动为准）。这个用例验证关闭态之外的行为，显式打开。
+	t.Setenv("ONEBOT_INBOUND_AUTOMATION", "1")
 	events := make(chan MessageEvent, 1)
 	done := make(chan struct{})
 	runtime := &AutomationRuntime{events: events, done: done}
@@ -577,6 +579,8 @@ func TestAutomationEnqueueEventBackpressuresUntilQueueDrains(t *testing.T) {
 }
 
 func TestAutomationEnqueueEventUnblocksWhenRuntimeStops(t *testing.T) {
+	// 入向自动化默认关闭（DSH 驱动为准）。这个用例验证关闭态之外的行为，显式打开。
+	t.Setenv("ONEBOT_INBOUND_AUTOMATION", "1")
 	events := make(chan MessageEvent, 1)
 	done := make(chan struct{})
 	runtime := &AutomationRuntime{events: events, done: done}

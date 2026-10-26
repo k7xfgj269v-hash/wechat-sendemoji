@@ -195,10 +195,37 @@ cd dsh-plugin/onebot-bridge && node --test
 
 ## 边界与已知缺口
 
+### 已解决
+
+- **入向双循环**：入向消息不再同时触发 onebot 自己的 AI 对话循环（那是 DSH 的事）。
+  默认关闭，需要时置 `ONEBOT_INBOUND_AUTOMATION=1` 恢复；CRM/审计落库不受影响。
+- **插件与真实 profile 联调**：已在独立 profile 里加载并跑通 —— 四个模块启动、WS 连上真实 onebot。
+  过程中修掉一个真 bug：`inject` 少了 `systemPrompt`，导致人格变量注册必然失败。
+- **收藏表情原图解密算法**（见下）：不需要 fav 表的 `aes_key`，账号级派生 key 就够。
+
+### 收藏表情原图的解密算法（未在本机验证）
+
+来源 [CN-Grace/Wechat-Emoticon-Parser](https://github.com/CN-Grace/Wechat-Emoticon-Parser) `v4.0-plus`（MIT）：
+
+```
+AES-128-CBC + PKCS7，key = IV = md5(f"{seed}{wxid}EMOTICON") 的前 16 字节
+seed = 微信进程内存里的账号级常量（8~10 位十进制数字串）
+验证 = 表情文件前 16 字节解密后首 4 字节命中 89504e47 / GIF8 / ffd8ff / wxgf
+```
+
+这澄清了一个此前的误判：fav 表里的 `aes_key` 是**每条表情各自的**密钥；
+磁盘缓存这一层用的是**账号级派生 key** —— 所以不用解 SQLCipher，只要有 `seed` 就能批量还原。
+
+本机未验证的原因：`seed` 要从运行中的微信进程内存里扫，而本次扫描把 Frida gadget 的注入卡死了
+（进程与端口仍在，`create_script` 超时）。**教训已写进 `docs/re/`：不要在 Frida 脚本里做长时间同步循环**，
+必须分块驱动。
+
+### 仍未做
+
 - **只能发服务端已认识的表情**（按 md5 反查）。本地新图需要先走收藏/上传链路 —— **未逆向**。
-- **收藏表情的 caption / aes_key 拿不到**：fav 表在 SQLCipher 里（无 key 提权工具），
-  且 WCDB/SQLCipher 是静态链接 + 符号剥离，按导出名钩 `sqlite3_*` 必然落空（已实测 4 分钟零流量）。
-- **表情群聊/私聊分流**、**raw 图片直发（agent 模式只支持 attachment_id）** 未做。
+- **收藏表情的 caption**：fav 表在 SQLCipher 里；WCDB/SQLCipher 静态链接且符号剥离，
+  按导出名钩 `sqlite3_*` 必然落空（实测 4 分钟零流量）。面板只能显示"md5 + 序号"占位。
+- **群聊/私聊分流**、**raw 图片直发**（agent 模式只支持 `attachment_id`）。
 - 本仓库只做**表情这一条链路**的逆向；其余 mars/协议细节未展开。
 
 ---
