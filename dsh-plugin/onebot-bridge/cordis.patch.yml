@@ -1,0 +1,88 @@
+# onebot-bridge —— 插件自带的挂载声明（dsh plugin add 时自动并进 profile 的 bundles）
+#
+# 层叠顺序（与 dsh-aurabot-qq/cordis.patch.yml 同构）：
+#   1) onebot-bridge     插件本体（宿主半边；本插件没有网页半边，不做面板）
+#   2) onebot-owner      主人（owner.wxids / owner.groups 里的人）用：人格 + 文件/搜索/联网
+#   3) onebot-social     群聊和陌生人用：人格 + 什么本地工具都没有
+#
+# 人格不是写死在这里的，而是提示词变量 {{onebot_persona}}：插件启动时注册这个变量
+# （src/persona.js + src/index.js），文本来自 config.json 的 persona.text / persona.file。
+# 所以改人格不用改这个文件、不用重建会话 —— 下一轮渲染就生效。
+#
+# 两段 preset 都刻意不挂 shell：DSH 的 base 按平台只挂一套 shell（macOS/Linux 是 bash，
+# Windows 是 pwsh），在 preset 里再写一套跨平台的会直接把 profile 加载搞挂。要 shell 自己加。
+- insert:
+    - id: onebot-bridge
+      name: onebot-bridge
+
+    # 主人档：工具放开，保留 DSH 的助手身份与工具指引（persona 只是盖掉身份前缀）
+    - id: preset-onebot-owner
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: onebot-owner
+        name: OneBot Bridge · 主人
+        description: 微信里跟主人说话：人格 + 文件/搜索/联网工具
+        order: 70
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: '{{onebot_persona}}'
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+            config:
+              sampleOverCapGlobResults: false
+          - id: tool-web
+            name: '@deepseek-ai/dsh-tool-web'
+            config:
+              fetch: true
+              searchTimeoutMs: 60000
+          - id: compaction
+            name: cordis:group
+            group: true
+            isolate:
+              compaction: true
+              toolResultPruner: true
+            config:
+              - id: compaction-basic
+                name: '@deepseek-ai/dsh-compaction-basic'
+              - id: command-compact
+                name: '@deepseek-ai/dsh-command-compact'
+              - id: tool-result-pruner
+                name: '@deepseek-ai/dsh-compaction-tool-result-pruner'
+                config:
+                  thresholdChars: 8192
+                  headChars: 4096
+                  tailChars: 1024
+
+    # 社交档：人格独占系统提示词（complete），没有任何本地工具 —— 群里/陌生人也不可能动到这台机器
+    - id: preset-onebot-social
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: onebot-social
+        name: OneBot Bridge · 群聊/其他人
+        description: 微信群和陌生人：只有人格，没有任何本地工具
+        order: 71
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              # complete: 人格独占系统提示词，不带 DSH 那一大段编程助手身份（聊天场景，实测一轮快很多）
+              prefix: '{{onebot_persona}}'
+              complete: true
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: compaction
+            name: cordis:group
+            group: true
+            isolate:
+              compaction: true
+            config:
+              - id: compaction-basic
+                name: '@deepseek-ai/dsh-compaction-basic'
+              - id: command-compact
+                name: '@deepseek-ai/dsh-command-compact'

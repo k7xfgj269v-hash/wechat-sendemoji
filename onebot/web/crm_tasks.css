@@ -1,0 +1,253 @@
+.crmTasks-topbar > button {
+  flex: 0 0 auto;
+}
+
+.crmTasks-layout {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(420px, 1.08fr) minmax(340px, 0.92fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.crmTasks-queue,
+.crmTasks-editor {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 13px;
+}
+
+.crmTasks-editor {
+  position: sticky;
+  top: 22px;
+}
+
+.crmTasks-sectionHeader {
+  display: flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  margin: -2px 0 12px;
+  padding-bottom: 9px;
+}
+
+.crmTasks-sectionHeader h3 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.crmTasks-sectionHeader span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.crmTasks-filters {
+  display: grid;
+  grid-template-columns: 120px minmax(140px, 1fr) minmax(176px, 1fr);
+  gap: 8px;
+  align-items: end;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 11px;
+  padding-bottom: 11px;
+}
+
+.crmTasks-filterActions,
+.crmTasks-formActions {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.crmTasks-filterActions button,
+.crmTasks-formActions button {
+  flex: 0 0 auto;
+}
+
+.crmTasks-list {
+  display: grid;
+  gap: 7px;
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.crmTasks-row {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  min-height: 104px;
+  gap: 5px;
+  border-color: var(--border);
+  background: var(--surface);
+  padding: 10px;
+  text-align: left;
+}
+
+.crmTasks-row:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+.crmTasks-row[aria-current="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.crmTasks-rowTop,
+.crmTasks-rowBottom,
+.crmTasks-current {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.crmTasks-rowTop strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.crmTasks-status {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 2px 6px;
+}
+
+.crmTasks-status--open {
+  border-color: #d7b38f;
+  background: #f8eee4;
+  color: #83512f;
+}
+
+.crmTasks-status--completed {
+  border-color: #acd0bb;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.crmTasks-due,
+.crmTasks-context,
+.crmTasks-rowBottom,
+.crmTasks-current {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.crmTasks-due--overdue {
+  color: var(--danger);
+  font-weight: 680;
+}
+
+.crmTasks-context,
+.crmTasks-id {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crmTasks-rowBottom {
+  border-top: 1px solid var(--border);
+  margin-top: 2px;
+  padding-top: 6px;
+}
+
+.crmTasks-rowBottom .crmTasks-id {
+  max-width: 54%;
+  text-align: right;
+}
+
+.crmTasks-form {
+  display: grid;
+  min-width: 0;
+  gap: 11px;
+}
+
+.crmTasks-formRow {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.crmTasks-current {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 9px 0;
+}
+
+.crmTasks-current .crmTasks-id {
+  max-width: 68%;
+  text-align: right;
+}
+
+@media (max-width: 980px) {
+  .crmTasks-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .crmTasks-editor {
+    position: static;
+  }
+
+  .crmTasks-list {
+    max-height: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .crmTasks-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 430px) {
+  .crmTasks-layout {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .crmTasks-queue,
+  .crmTasks-editor {
+    padding: 10px;
+  }
+
+  .crmTasks-filters,
+  .crmTasks-formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .crmTasks-filterActions,
+  .crmTasks-formActions {
+    width: 100%;
+  }
+
+  .crmTasks-filterActions button,
+  .crmTasks-formActions button {
+    flex: 1 1 calc(50% - 7px);
+    min-width: 0;
+    padding-inline: 8px;
+  }
+
+  .crmTasks-rowTop,
+  .crmTasks-rowBottom,
+  .crmTasks-current {
+    display: grid;
+  }
+
+  .crmTasks-rowBottom .crmTasks-id,
+  .crmTasks-current .crmTasks-id {
+    max-width: none;
+    text-align: left;
+  }
+}

@@ -1,0 +1,443 @@
+.automationConfig {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.automationConfig .automationConfig-topbar {
+  align-items: center;
+}
+
+.automationConfig .automationConfig-topbar > span,
+.automationConfig [data-tone] {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+.automationConfig [data-tone="active"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.automationConfig .automationConfig-layout {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(440px, 1.2fr) minmax(320px, 0.8fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.automationConfig .automationConfig-main,
+.automationConfig .automationConfig-audiences {
+  min-width: 0;
+  border-top: 2px solid var(--border-strong);
+  padding-top: 14px;
+}
+
+.automationConfig .automationConfig-provider,
+.automationConfig .automationConfig-audienceForm {
+  display: grid;
+  min-width: 0;
+  gap: 14px;
+}
+
+.automationConfig .automationConfig-readiness {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(150px, 0.65fr) minmax(210px, 0.85fr) minmax(240px, 1fr);
+  gap: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-muted);
+  padding: 11px 12px;
+}
+
+.automationConfig .automationConfig-readiness > div,
+.automationConfig .automationConfig-latestTest {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 4px;
+}
+
+.automationConfig .automationConfig-readiness strong {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.automationConfig .automationConfig-readiness span,
+.automationConfig .automationConfig-readiness time {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationConfig .automationConfig-readiness dl {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 3px 8px;
+  margin: 0;
+}
+
+.automationConfig .automationConfig-readiness dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationConfig .automationConfig-readiness dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--text);
+  font-size: 11px;
+}
+
+.automationConfig .automationConfig-latestTest pre {
+  max-height: 92px;
+  min-width: 0;
+  overflow: auto;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 2px 0 0;
+  padding: 6px;
+  color: var(--danger);
+  font: 10px/1.4 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  white-space: pre-wrap;
+}
+
+.automationConfig .automationConfig-sectionHead,
+.automationConfig .automationConfig-audienceTitle {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.automationConfig .automationConfig-sectionHead h3,
+.automationConfig .automationConfig-sectionHead p {
+  margin: 0;
+}
+
+.automationConfig .automationConfig-sectionHead h3 {
+  color: var(--text);
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+.automationConfig .automationConfig-sectionHead p {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationConfig .automationConfig-fields,
+.automationConfig .automationConfig-audienceGrid,
+.automationConfig .automationConfig-scopeGrid,
+.automationConfig .automationConfig-compareControls {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.automationConfig label {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.automationConfig .automationConfig-secret small,
+.automationConfig .automationConfig-fieldHelp {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.automationConfig input,
+.automationConfig select,
+.automationConfig textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  padding: 9px 10px;
+}
+
+.automationConfig input,
+.automationConfig select {
+  min-height: 38px;
+}
+
+.automationConfig textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.automationConfig input:focus-visible,
+.automationConfig select:focus-visible,
+.automationConfig textarea:focus-visible,
+.automationConfig button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.automationConfig .automationConfig-toggle {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  min-height: 34px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.automationConfig .automationConfig-toggle input {
+  width: 16px;
+  min-height: 16px;
+  padding: 0;
+  accent-color: var(--accent);
+}
+
+.automationConfig .automationConfig-actions,
+.automationConfig .automationConfig-rowActions {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.automationConfig .automationConfig-actions button,
+.automationConfig .automationConfig-rowActions button {
+  min-height: 36px;
+}
+
+.automationConfig .automationConfig-audiences {
+  display: grid;
+  min-width: 0;
+  gap: 18px;
+}
+
+.automationConfig .automationConfig-prompts {
+  display: grid;
+  min-width: 0;
+  gap: 14px;
+  border-top: 1px solid var(--border-strong);
+  margin-top: 22px;
+  padding-top: 18px;
+}
+
+.automationConfig .automationConfig-compareControls {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: end;
+}
+
+.automationConfig .automationConfig-compareControls button {
+  min-height: 38px;
+}
+
+.automationConfig .automationConfig-comparison {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.automationConfig .automationConfig-comparison pre {
+  max-height: 240px;
+  min-width: 0;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--surface-muted);
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+.automationConfig .automationConfig-evaluation {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-muted);
+  padding: 10px 12px;
+}
+
+.automationConfig .automationConfig-evaluation > div {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.automationConfig [data-tone="warning"] {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.automationConfig .automationConfig-revisionList {
+  display: grid;
+  min-width: 0;
+  gap: 0;
+}
+
+.automationConfig .automationConfig-revision {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 12px;
+  border-top: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+.automationConfig .automationConfig-revision > div:first-child {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.automationConfig .automationConfig-revision strong {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.automationConfig .automationConfig-revision span,
+.automationConfig .automationConfig-revision code,
+.automationConfig .automationConfig-rowActions small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.automationConfig .automationConfig-revision .automationConfig-rowActions {
+  grid-column: 1 / -1;
+}
+
+.automationConfig .automationConfig-scopeGrid {
+  grid-template-columns: minmax(0, 1.3fr) minmax(90px, 0.7fr) minmax(110px, 0.8fr);
+}
+
+.automationConfig .automationConfig-audienceForm {
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 18px;
+}
+
+.automationConfig .automationConfig-audienceList {
+  display: grid;
+  min-width: 0;
+  gap: 0;
+}
+
+.automationConfig .automationConfig-audience {
+  display: grid;
+  min-width: 0;
+  gap: 9px;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+
+.automationConfig .automationConfig-audience:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.automationConfig .automationConfig-audienceTitle > div {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.automationConfig .automationConfig-audienceTitle strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.automationConfig .automationConfig-audienceTitle > div span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationConfig .automationConfig-audience code {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationConfig .automationConfig-intents {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.automationConfig .automationConfig-intents span {
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  font-size: 11px;
+  padding: 3px 6px;
+}
+
+.automationConfig .automationConfig-empty {
+  min-height: 72px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .automationConfig .automationConfig-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .automationConfig .automationConfig-readiness {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .automationConfig .automationConfig-latestTest {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .automationConfig .automationConfig-readiness,
+  .automationConfig .automationConfig-fields,
+  .automationConfig .automationConfig-audienceGrid,
+  .automationConfig .automationConfig-scopeGrid,
+  .automationConfig .automationConfig-compareControls,
+  .automationConfig .automationConfig-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .automationConfig .automationConfig-latestTest {
+    grid-column: auto;
+  }
+
+  .automationConfig .automationConfig-actions button {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}

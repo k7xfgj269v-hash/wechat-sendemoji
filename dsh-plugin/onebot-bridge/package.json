@@ -1,0 +1,40 @@
+{
+  "name": "onebot-bridge",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "onebot-bridge：住在微信里的 DSH —— 订阅 onebot 的 WS 事件流，归一化后投进持久 DSH 会话，再把回复发回微信（自带 owner/social 两个 agent preset，默认 dryRun）",
+  "license": "MIT",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./src/modules/*": "./src/modules/*",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.js\""
+  },
+  "dsh": {
+    "id": "onebot-bridge",
+    "name": "onebot-bridge",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "dsh-bundle",
+    "onebot",
+    "wechat"
+  ]
+}

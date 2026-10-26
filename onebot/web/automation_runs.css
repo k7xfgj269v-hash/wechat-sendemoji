@@ -1,0 +1,640 @@
+.automationRuns {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.automationRuns .automationRuns-header {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+}
+
+.automationRuns .automationRuns-header > div {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 9px;
+}
+
+.automationRuns .automationRuns-header h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.automationRuns .automationRuns-header span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.automationRuns .automationRuns-header button,
+.automationRuns .automationRuns-filterActions button,
+.automationRuns .automationRuns-pagerActions button {
+  min-width: 72px;
+  min-height: 36px;
+}
+
+.automationRuns .automationRuns-filterBar {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.55fr) minmax(260px, 1.45fr) auto;
+  gap: 8px;
+  align-items: end;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.automationRuns .automationRuns-filterBar label {
+  min-width: 0;
+}
+
+.automationRuns .automationRuns-filterBar input,
+.automationRuns .automationRuns-filterBar select {
+  width: 100%;
+  min-width: 0;
+  min-height: 36px;
+}
+
+.automationRuns .automationRuns-filterActions,
+.automationRuns .automationRuns-pagerActions {
+  display: flex;
+  gap: 7px;
+}
+
+.automationRuns .automationRuns-primaryButton {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.automationRuns .automationRuns-layout {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(330px, 0.72fr) minmax(470px, 1.28fr);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.automationRuns .automationRuns-listPane,
+.automationRuns .automationRuns-detailPane {
+  min-width: 0;
+  background: var(--surface);
+}
+
+.automationRuns .automationRuns-listPane {
+  display: grid;
+  grid-template-rows: minmax(240px, 1fr) auto;
+  max-height: calc(100vh - 220px);
+  border-right: 1px solid var(--border);
+}
+
+.automationRuns .automationRuns-detailPane {
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+}
+
+.automationRuns .automationRuns-runList {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.automationRuns .automationRuns-runRow {
+  display: grid;
+  width: 100%;
+  min-height: 92px;
+  gap: 5px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--surface);
+  padding: 10px 11px;
+  text-align: left;
+}
+
+.automationRuns .automationRuns-runRow:hover:not(:disabled) {
+  border-color: var(--border);
+  background: var(--surface-hover);
+}
+
+.automationRuns .automationRuns-runRow[aria-current="true"] {
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.automationRuns .automationRuns-runRowTop,
+.automationRuns .automationRuns-runRowMeta,
+.automationRuns .automationRuns-actionHeading,
+.automationRuns .automationRuns-auditEvent > div {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+}
+
+.automationRuns .automationRuns-runRowTop strong,
+.automationRuns .automationRuns-actionHeading strong {
+  min-width: 0;
+  color: var(--text);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.automationRuns .automationRuns-runRowMeta,
+.automationRuns .automationRuns-runRowSource {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationRuns .automationRuns-runRowMeta time {
+  flex: 0 1 auto;
+  text-align: right;
+}
+
+.automationRuns .automationRuns-runRowFailure {
+  color: var(--danger);
+  font-size: 11px;
+}
+
+.automationRuns .automationRuns-badge {
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-height: 22px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.2;
+  padding: 3px 6px;
+}
+
+.automationRuns .automationRuns-tone-running,
+.automationRuns .automationRuns-tone-executing,
+.automationRuns .automationRuns-tone-approved {
+  border-color: #6d8297;
+  color: #526d86;
+}
+
+.automationRuns .automationRuns-tone-succeeded,
+.automationRuns .automationRuns-tone-sent {
+  border-color: #6f8a72;
+  color: var(--success);
+}
+
+.automationRuns .automationRuns-tone-failed,
+.automationRuns .automationRuns-tone-rejected,
+.automationRuns .automationRuns-tone-denied {
+  border-color: #a46e68;
+  color: var(--danger);
+}
+
+.automationRuns .automationRuns-tone-stale,
+.automationRuns .automationRuns-tone-superseded {
+  border-color: #9a8155;
+  color: #886d3f;
+}
+
+.automationRuns .automationRuns-tone-unknown {
+  border-color: #817489;
+  color: #6f6178;
+}
+
+.automationRuns .automationRuns-tone-ready,
+.automationRuns .automationRuns-tone-result {
+  border-color: #6f8a72;
+  color: var(--success);
+}
+
+.automationRuns .automationRuns-tone-review {
+  border-color: #6d8297;
+  color: #526d86;
+}
+
+.automationRuns .automationRuns-tone-blocked {
+  border-color: #a46e68;
+  color: var(--danger);
+}
+
+.automationRuns .automationRuns-tone-waiting {
+  border-color: var(--border-strong);
+  color: var(--muted);
+}
+
+.automationRuns .automationRuns-pager {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 12px;
+  padding: 7px 10px;
+}
+
+.automationRuns .automationRuns-empty,
+.automationRuns .automationRuns-detailEmpty {
+  color: var(--muted);
+  font-size: 12px;
+  padding: 18px 12px;
+}
+
+.automationRuns .automationRuns-detailEmpty {
+  display: grid;
+  gap: 4px;
+}
+
+.automationRuns .automationRuns-detailEmpty strong {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.automationRuns .automationRuns-selectionNotice,
+.automationRuns .automationRuns-retainedNotice {
+  border-left: 3px solid #9a8155;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 10px;
+  padding: 7px 9px;
+}
+
+.automationRuns .automationRuns-retainedNotice {
+  margin: 0 0 10px;
+}
+
+.automationRuns .automationRuns-detailContent {
+  min-width: 0;
+  padding: 13px 14px 18px;
+}
+
+.automationRuns .automationRuns-detailHeader {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.automationRuns .automationRuns-detailHeader h3 {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 17px;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.automationRuns .automationRuns-detailHeader p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.automationRuns .automationRuns-detailGrid,
+.automationRuns .automationRuns-actionMeta,
+.automationRuns .automationRuns-failure dl {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 6px 10px;
+  margin: 0;
+}
+
+.automationRuns .automationRuns-runMeta {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+.automationRuns .automationRuns-detailGrid dt,
+.automationRuns .automationRuns-actionMeta dt,
+.automationRuns .automationRuns-failure dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationRuns .automationRuns-detailGrid dd,
+.automationRuns .automationRuns-actionMeta dd,
+.automationRuns .automationRuns-failure dd {
+  min-width: 0;
+  margin: 0;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.automationRuns .automationRuns-failure {
+  border-bottom: 1px solid var(--border);
+  background: #fff8f6;
+  padding: 11px 0;
+}
+
+.automationRuns .automationRuns-failure h4,
+.automationRuns .automationRuns-sectionHeading h4 {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.automationRuns .automationRuns-failure h4 {
+  color: var(--danger);
+  margin-bottom: 8px;
+}
+
+.automationRuns .automationRuns-detailSection {
+  border-bottom: 1px solid var(--border);
+  padding: 13px 0;
+}
+
+.automationRuns .automationRuns-detailSection:last-child {
+  border-bottom: 0;
+}
+
+.automationRuns .automationRuns-sectionHeading {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+
+.automationRuns .automationRuns-sectionHeading span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationRuns .automationRuns-sourceText {
+  margin: 0 0 11px;
+  border-left: 3px solid var(--border-strong);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.55;
+  padding: 5px 9px;
+  white-space: pre-wrap;
+}
+
+.automationRuns .automationRuns-counts {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(72px, 1fr));
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.automationRuns .automationRuns-counts > span {
+  display: grid;
+  min-height: 42px;
+  align-content: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 10px;
+  padding: 5px 6px;
+  text-align: center;
+}
+
+.automationRuns .automationRuns-counts strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.automationRuns .automationRuns-actionList {
+  display: grid;
+}
+
+.automationRuns .automationRuns-action {
+  min-width: 0;
+  border-top: 1px solid var(--border);
+  padding: 11px 0;
+}
+
+.automationRuns .automationRuns-action:last-child {
+  padding-bottom: 0;
+}
+
+.automationRuns .automationRuns-actionHeading {
+  align-items: flex-start;
+  margin-bottom: 9px;
+}
+
+.automationRuns .automationRuns-actionHeading > div {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.automationRuns .automationRuns-actionHeading .automationRuns-actionBadges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.automationRuns .automationRuns-actionHeading > div span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.automationRuns .automationRuns-actionMeta {
+  margin-bottom: 9px;
+}
+
+.automationRuns .automationRuns-actionReasons,
+.automationRuns .automationRuns-actionDependencies {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 10px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationRuns .automationRuns-inlineList {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.automationRuns .automationRuns-inlineList > span {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  padding: 2px 5px;
+}
+
+.automationRuns .automationRuns-muted {
+  color: var(--subtle);
+}
+
+.automationRuns .automationRuns-actionFailure {
+  display: grid;
+  gap: 3px;
+  border-left: 3px solid var(--danger);
+  margin-top: 9px;
+  padding: 5px 8px;
+}
+
+.automationRuns .automationRuns-actionFailure strong {
+  color: var(--danger);
+  font-size: 11px;
+}
+
+.automationRuns .automationRuns-actionFailure span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationRuns .automationRuns-raw {
+  margin-top: 9px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+  padding-top: 7px;
+}
+
+.automationRuns .automationRuns-raw summary {
+  cursor: pointer;
+}
+
+.automationRuns .automationRuns-raw > div {
+  display: grid;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.automationRuns .automationRuns-raw pre,
+.automationRuns .automationRuns-auditEvent pre {
+  max-width: 100%;
+  margin: 0;
+  background: var(--surface-muted);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  line-height: 1.45;
+  overflow-x: auto;
+  padding: 7px 8px;
+  white-space: pre-wrap;
+}
+
+.automationRuns .automationRuns-auditList {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.automationRuns .automationRuns-auditEvent {
+  display: grid;
+  gap: 4px;
+  border-top: 1px solid var(--border);
+  padding: 9px 0;
+}
+
+.automationRuns .automationRuns-auditEvent strong {
+  font-size: 12px;
+}
+
+.automationRuns .automationRuns-auditEvent time,
+.automationRuns .automationRuns-auditEvent > span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+@media (max-width: 900px) {
+  .automationRuns .automationRuns-layout {
+    grid-template-columns: minmax(280px, 0.8fr) minmax(360px, 1.2fr);
+  }
+
+  .automationRuns .automationRuns-counts {
+    grid-template-columns: repeat(4, minmax(72px, 1fr));
+  }
+}
+
+@media (max-width: 430px) {
+  .automationRuns .automationRuns-header {
+    align-items: flex-start;
+  }
+
+  .automationRuns .automationRuns-header > div {
+    display: grid;
+    gap: 2px;
+  }
+
+  .automationRuns .automationRuns-filterBar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .automationRuns .automationRuns-filterActions,
+  .automationRuns .automationRuns-pagerActions {
+    width: 100%;
+  }
+
+  .automationRuns .automationRuns-filterActions button,
+  .automationRuns .automationRuns-pagerActions button {
+    flex: 1 1 0;
+  }
+
+  .automationRuns .automationRuns-layout {
+    grid-template-columns: minmax(0, 1fr);
+    overflow: visible;
+  }
+
+  .automationRuns .automationRuns-listPane {
+    max-height: none;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .automationRuns .automationRuns-runList {
+    max-height: 420px;
+  }
+
+  .automationRuns .automationRuns-detailPane {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .automationRuns .automationRuns-pager {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .automationRuns .automationRuns-detailContent {
+    padding: 12px 10px 16px;
+  }
+
+  .automationRuns .automationRuns-detailGrid,
+  .automationRuns .automationRuns-actionMeta,
+  .automationRuns .automationRuns-actionDependencies,
+  .automationRuns .automationRuns-actionReasons,
+  .automationRuns .automationRuns-failure dl {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+
+  .automationRuns .automationRuns-detailGrid dd,
+  .automationRuns .automationRuns-actionMeta dd,
+  .automationRuns .automationRuns-failure dd {
+    margin-bottom: 6px;
+  }
+
+  .automationRuns .automationRuns-counts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .automationRuns .automationRuns-actionHeading {
+    align-items: flex-start;
+  }
+}

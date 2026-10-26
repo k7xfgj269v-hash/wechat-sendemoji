@@ -1,0 +1,29 @@
+# 二进制与产物
+onebot/onebot
+onebot/onebot-workbench
+onebot/onebot-frida
+onebot/dist/
+release/
+
+# 依赖（体积大，用 go mod download / pnpm i 取）
+onebot/vendor/
+node_modules/
+
+# 本地数据与日志
+onebot/image/
+onebot/file/
+onebot/audio/
+onebot/videos/
+onebot/log/
+*.log
+*.tgz
+
+# 系统
+.DS_Store
+.idea
+__handlers__
+*.sqlite
+
+# 临时探针
+zz_*
+*_probe*

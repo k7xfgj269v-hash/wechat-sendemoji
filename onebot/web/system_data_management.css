@@ -1,0 +1,234 @@
+.systemData {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.systemData .systemData-topbar {
+  align-items: center;
+}
+
+.systemData .systemData-topbar > span {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+.systemData .systemData-topbar > span[data-ready="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.systemData .systemData-layout {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.systemData .systemData-panel {
+  display: grid;
+  min-width: 0;
+  gap: 16px;
+  border-top: 2px solid var(--border-strong);
+  padding-top: 14px;
+}
+
+.systemData .systemData-heading {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.systemData .systemData-heading h3,
+.systemData .systemData-heading p {
+  margin: 0;
+}
+
+.systemData .systemData-heading h3 {
+  color: var(--text);
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+.systemData .systemData-heading p {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.systemData .systemData-schema {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.systemData .systemData-schema > div {
+  min-width: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 8px;
+}
+
+.systemData .systemData-schema dt {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.systemData .systemData-schema dd {
+  margin: 3px 0 0;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.systemData .systemData-toggle {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  min-height: 34px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.systemData .systemData-toggle input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.systemData .systemData-actions {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.systemData .systemData-actions button {
+  min-height: 36px;
+}
+
+.systemData .systemData-file {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.systemData .systemData-file input {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  padding: 7px 9px;
+}
+
+.systemData .systemData-file input:focus-visible,
+.systemData button:focus-visible,
+.systemData .systemData-toggle input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.systemData .systemData-empty {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  padding: 18px 0;
+}
+
+.systemData .systemData-validationResult {
+  display: grid;
+  min-width: 0;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.systemData .systemData-resultHead {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.systemData .systemData-resultHead strong {
+  color: var(--accent-strong);
+  font-size: 13px;
+}
+
+.systemData .systemData-resultHead span {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.systemData .systemData-entryList {
+  display: grid;
+  min-width: 0;
+}
+
+.systemData .systemData-entryList > div {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding: 9px 0;
+}
+
+.systemData .systemData-entryList code {
+  min-width: 0;
+  color: var(--text);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.systemData .systemData-entryList span {
+  color: var(--muted);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .systemData .systemData-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .systemData .systemData-schema {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .systemData .systemData-resultHead,
+  .systemData .systemData-entryList > div {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .systemData .systemData-entryList span {
+    white-space: normal;
+  }
+}

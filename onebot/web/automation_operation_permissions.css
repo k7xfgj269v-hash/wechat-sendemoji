@@ -1,0 +1,153 @@
+.opPerm {
+  display: grid;
+  min-width: 0;
+  gap: 20px;
+  overflow-wrap: anywhere;
+}
+
+.opPerm .opPerm-topbar {
+  align-items: center;
+}
+
+.opPerm .opPerm-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.opPerm .opPerm-actions button {
+  min-height: 36px;
+}
+
+.opPerm .opPerm-save:not([disabled]) {
+  border-color: var(--accent-strong);
+  color: var(--accent-strong);
+}
+
+.opPerm .opPerm-summary {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 2px solid var(--border-strong);
+  border-bottom: 1px solid var(--border);
+}
+
+.opPerm .opPerm-summary > div {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  padding: 14px 12px;
+}
+
+.opPerm .opPerm-summary span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.opPerm .opPerm-summary strong {
+  color: var(--text);
+  font-size: 18px;
+}
+
+.opPerm .opPerm-group {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.opPerm .opPerm-groupHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+}
+
+.opPerm .opPerm-groupHead h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.opPerm .opPerm-groupHead code {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.opPerm .opPerm-op {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 4px;
+}
+
+.opPerm label.opPerm-op {
+  cursor: pointer;
+}
+
+.opPerm .opPerm-op[data-allowed="false"] {
+  background: var(--surface-muted);
+}
+
+.opPerm .opPerm-opInfo {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.opPerm .opPerm-opInfo code {
+  color: var(--text);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.opPerm .opPerm-opLabel {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.opPerm .opPerm-risk {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+}
+
+.opPerm .opPerm-risk[data-risk="R3"] {
+  color: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+.opPerm .opPerm-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.opPerm .opPerm-unimpl {
+  color: var(--muted);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.opPerm input:focus-visible,
+.opPerm button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .opPerm .opPerm-summary {
+    grid-template-columns: 1fr;
+  }
+}

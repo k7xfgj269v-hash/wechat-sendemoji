@@ -1,0 +1,257 @@
+.fridaControl {
+  width: 100%;
+  min-width: 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.fridaControl .fridaControl-header,
+.fridaControl .fridaControl-sectionHeading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fridaControl .fridaControl-header {
+  min-height: 48px;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+}
+
+.fridaControl .fridaControl-header h2,
+.fridaControl .fridaControl-header p,
+.fridaControl .fridaControl-sectionHeading h3 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.fridaControl .fridaControl-header h2 {
+  font-size: 22px;
+}
+
+.fridaControl .fridaControl-header p,
+.fridaControl .fridaControl-sectionHeading span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fridaControl .fridaControl-header p {
+  margin-top: 3px;
+}
+
+.fridaControl .fridaControl-layout {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(420px, 1.2fr);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.fridaControl .fridaControl-statusPane,
+.fridaControl .fridaControl-configPane {
+  min-width: 0;
+  padding: 16px;
+}
+
+.fridaControl .fridaControl-statusPane {
+  border-right: 1px solid var(--border);
+  background: var(--surface-hover);
+}
+
+.fridaControl .fridaControl-sectionHeading {
+  min-height: 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 13px;
+  padding-bottom: 9px;
+}
+
+.fridaControl .fridaControl-sectionHeading h3 {
+  font-size: 15px;
+}
+
+.fridaControl .fridaControl-badge {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 3px 7px;
+}
+
+.fridaControl .fridaControl-badge[data-tone="attached"] {
+  border-color: #75a085;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.fridaControl .fridaControl-badge[data-tone="error"] {
+  border-color: #c68f88;
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.fridaControl .fridaControl-statusList {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 9px 12px;
+  margin: 0;
+}
+
+.fridaControl .fridaControl-statusList dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fridaControl .fridaControl-statusList dd {
+  min-width: 0;
+  margin: 0;
+  font-weight: 620;
+  overflow-wrap: anywhere;
+}
+
+.fridaControl .fridaControl-lastError {
+  display: grid;
+  gap: 3px;
+  border-left: 3px solid var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+  margin-top: 15px;
+  padding: 9px 10px;
+}
+
+.fridaControl .fridaControl-lastError strong {
+  font-size: 12px;
+}
+
+.fridaControl .fridaControl-lastError span {
+  font-size: 12px;
+}
+
+.fridaControl .fridaControl-form {
+  display: grid;
+  min-width: 0;
+  gap: 13px;
+}
+
+.fridaControl .fridaControl-mode {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.fridaControl .fridaControl-mode label {
+  display: block;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.fridaControl .fridaControl-mode label + label {
+  border-left: 1px solid var(--border-strong);
+}
+
+.fridaControl .fridaControl-mode input {
+  position: absolute;
+  width: 1px;
+  min-height: 1px;
+  opacity: 0;
+}
+
+.fridaControl .fridaControl-mode span {
+  display: grid;
+  min-height: 42px;
+  place-items: center;
+  background: var(--surface);
+  color: var(--muted);
+  padding: 8px 10px;
+}
+
+.fridaControl .fridaControl-mode input:checked + span {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.fridaControl .fridaControl-mode input:focus-visible + span {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.fridaControl .fridaControl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 13px;
+}
+
+.fridaControl .fridaControl-actions button {
+  min-height: 36px;
+}
+
+.fridaControl .fridaControl-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.fridaControl .fridaControl-danger {
+  border-color: #d6aaa5;
+  color: var(--danger);
+}
+
+@media (max-width: 840px) {
+  .fridaControl .fridaControl-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fridaControl .fridaControl-statusPane {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 430px) {
+  .fridaControl .fridaControl-header {
+    display: grid;
+  }
+
+  .fridaControl .fridaControl-header button,
+  .fridaControl .fridaControl-actions button {
+    width: 100%;
+  }
+
+  .fridaControl .fridaControl-statusPane,
+  .fridaControl .fridaControl-configPane {
+    padding: 12px;
+  }
+
+  .fridaControl .fridaControl-statusList {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+
+  .fridaControl .fridaControl-statusList dd {
+    margin-bottom: 7px;
+  }
+
+  .fridaControl .fridaControl-mode {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fridaControl .fridaControl-mode label + label {
+    border-top: 1px solid var(--border-strong);
+    border-left: 0;
+  }
+}

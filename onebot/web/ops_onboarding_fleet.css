@@ -1,0 +1,503 @@
+.opsOnboardingFleet-root {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.opsOnboardingFleet-toolbar {
+  display: grid;
+  grid-template-columns: minmax(520px, 1fr) minmax(360px, 0.8fr);
+  gap: 12px;
+  align-items: end;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+.opsOnboardingFleet-filterForm,
+.opsOnboardingFleet-createForm {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+  align-items: end;
+}
+
+.opsOnboardingFleet-filterForm {
+  grid-template-columns: repeat(3, minmax(130px, 1fr)) auto;
+}
+
+.opsOnboardingFleet-createForm {
+  grid-template-columns: minmax(220px, 1fr) auto;
+}
+
+.opsOnboardingFleet-workspace {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(560px, 1.58fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.opsOnboardingFleet-queue {
+  min-width: 0;
+  border-right: 1px solid var(--border);
+}
+
+.opsOnboardingFleet-queue > header {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-hover);
+  padding: 8px 10px;
+}
+
+.opsOnboardingFleet-queue h3,
+.opsOnboardingFleet-detailHeader h3,
+.opsOnboardingFleet-editorTitle h4 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.opsOnboardingFleet-queue h3 {
+  font-size: 14px;
+}
+
+.opsOnboardingFleet-queue > header span,
+.opsOnboardingFleet-editorTitle span {
+  color: var(--muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.opsOnboardingFleet-list {
+  display: grid;
+  max-height: 760px;
+  overflow-y: auto;
+}
+
+.opsOnboardingFleet-row {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--surface);
+  padding: 10px;
+  text-align: left;
+}
+
+.opsOnboardingFleet-row:hover:not(:disabled) {
+  border-color: var(--border);
+  background: var(--surface-hover);
+}
+
+.opsOnboardingFleet-row[aria-current="true"] {
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.opsOnboardingFleet-row > span {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.opsOnboardingFleet-row strong,
+.opsOnboardingFleet-row small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.opsOnboardingFleet-row small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.opsOnboardingFleet-rowStatus {
+  justify-items: end;
+}
+
+.opsOnboardingFleet-rowStatus b {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.opsOnboardingFleet-empty,
+.opsOnboardingFleet-detailEmpty {
+  color: var(--muted);
+  padding: 18px 12px;
+}
+
+.opsOnboardingFleet-detailEmpty {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 4px;
+}
+
+.opsOnboardingFleet-detail {
+  min-width: 0;
+}
+
+.opsOnboardingFleet-detailHeader {
+  display: flex;
+  min-width: 0;
+  min-height: 62px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px;
+}
+
+.opsOnboardingFleet-detailHeader > div {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.opsOnboardingFleet-detailHeader > div:last-child {
+  justify-items: end;
+}
+
+.opsOnboardingFleet-detailHeader h3 {
+  overflow-wrap: anywhere;
+  font-size: 17px;
+}
+
+.opsOnboardingFleet-detailHeader p {
+  margin: 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.opsOnboardingFleet-detailHeader span {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  padding: 3px 6px;
+  font-size: 11px;
+}
+
+.opsOnboardingFleet-detailHeader small {
+  color: var(--subtle);
+}
+
+.opsOnboardingFleet-detailGrid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.opsOnboardingFleet-editor {
+  min-width: 0;
+  padding: 14px;
+}
+
+.opsOnboardingFleet-editor + .opsOnboardingFleet-editor {
+  border-left: 1px solid var(--border);
+}
+
+.opsOnboardingFleet-editorTitle {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  padding-bottom: 9px;
+}
+
+.opsOnboardingFleet-editorTitle h4 {
+  font-size: 14px;
+}
+
+.opsOnboardingFleet-fields {
+  display: grid;
+  min-width: 0;
+  gap: 9px;
+}
+
+.opsOnboardingFleet-fields textarea {
+  min-height: 64px;
+}
+
+.opsOnboardingFleet-inline {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.opsOnboardingFleet-check {
+  display: flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 8px;
+}
+
+.opsOnboardingFleet-check input {
+  width: 16px;
+  height: 16px;
+}
+
+.opsOnboardingFleet-transitions {
+  display: grid;
+  gap: 7px;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.opsOnboardingFleet-transitions > span,
+.opsOnboardingFleet-transitions small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.opsOnboardingFleet-transitions > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.opsOnboardingFleet-tabs {
+  display: inline-flex;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 2px;
+}
+
+.opsOnboardingFleet-tabs button[aria-selected="true"] {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.opsOnboardingFleet-batches {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.38fr) minmax(480px, 0.62fr);
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.opsOnboardingFleet-batchList,
+.opsOnboardingFleet-batchDetail {
+  min-width: 0;
+  padding: 12px;
+}
+
+.opsOnboardingFleet-batchList {
+  border-right: 1px solid var(--border);
+}
+
+.opsOnboardingFleet-batchList form,
+.opsOnboardingFleet-batchDetail form {
+  display: grid;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.opsOnboardingFleet-batchList form label,
+.opsOnboardingFleet-batchDetail form label {
+  display: grid;
+  gap: 4px;
+}
+
+.opsOnboardingFleet-batchList > div {
+  display: grid;
+  gap: 6px;
+}
+
+.opsOnboardingFleet-batchList > div > button {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+  text-align: left;
+}
+
+.opsOnboardingFleet-batchList > div > button[aria-current="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.opsOnboardingFleet-batchList span,
+.opsOnboardingFleet-batchList small,
+.opsOnboardingFleet-batchDetail header p,
+.opsOnboardingFleet-preview span,
+.opsOnboardingFleet-preview small,
+.opsOnboardingFleet-batchResults span,
+.opsOnboardingFleet-batchResults small {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+.opsOnboardingFleet-batchDetail header,
+.opsOnboardingFleet-batchActions,
+.opsOnboardingFleet-preview > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.opsOnboardingFleet-batchDetail header h3,
+.opsOnboardingFleet-batchDetail header p,
+.opsOnboardingFleet-preview h4,
+.opsOnboardingFleet-batchResults h4 {
+  margin: 0;
+}
+
+.opsOnboardingFleet-batchDetail textarea {
+  min-height: 110px;
+}
+
+.opsOnboardingFleet-batchActions {
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.opsOnboardingFleet-preview,
+.opsOnboardingFleet-batchResults {
+  display: grid;
+  gap: 7px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.opsOnboardingFleet-preview article,
+.opsOnboardingFleet-batchResults > div {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) auto;
+  gap: 4px 10px;
+  border-left: 3px solid var(--border-strong);
+  background: var(--surface-hover);
+  padding: 8px;
+}
+
+.opsOnboardingFleet-preview article.is-eligible {
+  border-left-color: var(--success);
+}
+
+.opsOnboardingFleet-preview article.is-ineligible {
+  border-left-color: var(--danger);
+}
+
+.opsOnboardingFleet-preview code {
+  grid-column: 1 / -1;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+@media (max-width: 1120px) {
+  .opsOnboardingFleet-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .opsOnboardingFleet-workspace {
+    grid-template-columns: minmax(240px, 0.5fr) minmax(460px, 1.5fr);
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .opsOnboardingFleet-detail {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 760px) {
+  .opsOnboardingFleet-filterForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .opsOnboardingFleet-workspace {
+    display: block;
+    overflow-x: hidden;
+  }
+
+  .opsOnboardingFleet-queue {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .opsOnboardingFleet-list {
+    max-height: 320px;
+  }
+
+  .opsOnboardingFleet-detail {
+    min-width: 0;
+  }
+
+  .opsOnboardingFleet-detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .opsOnboardingFleet-batches {
+    grid-template-columns: 1fr;
+  }
+
+  .opsOnboardingFleet-batchList {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .opsOnboardingFleet-editor + .opsOnboardingFleet-editor {
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .opsOnboardingFleet-root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .opsOnboardingFleet-filterForm,
+  .opsOnboardingFleet-createForm,
+  .opsOnboardingFleet-inline {
+    grid-template-columns: 1fr;
+  }
+
+  .opsOnboardingFleet-filterForm button,
+  .opsOnboardingFleet-createForm button,
+  .opsOnboardingFleet-fields > button {
+    width: 100%;
+  }
+
+  .opsOnboardingFleet-detailHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .opsOnboardingFleet-detailHeader > div:last-child {
+    justify-items: start;
+  }
+
+  .opsOnboardingFleet-editor {
+    padding: 11px 10px;
+  }
+
+  .opsOnboardingFleet-batchDetail header,
+  .opsOnboardingFleet-batchActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

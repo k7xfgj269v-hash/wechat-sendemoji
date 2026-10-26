@@ -1,0 +1,684 @@
+.automationSupervision {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.automationSupervision-header {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+  padding-bottom: 9px;
+}
+
+.automationSupervision-header > div,
+.automationSupervision-paneHeader > div,
+.automationSupervision-rowHeading > div,
+.automationSupervision-connection {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.automationSupervision h2,
+.automationSupervision h3,
+.automationSupervision p {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.automationSupervision h2 {
+  font-size: 20px;
+}
+
+.automationSupervision h3 {
+  font-size: 13px;
+}
+
+.automationSupervision-header span,
+.automationSupervision-paneHeader span,
+.automationSupervision-meta,
+.automationSupervision time,
+.automationSupervision-connection span,
+.automationSupervision-rowHeading > span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationSupervision-tabs {
+  display: flex;
+  min-height: 38px;
+  gap: 2px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.automationSupervision-tabs button {
+  min-width: 88px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 7px 12px;
+}
+
+.automationSupervision-tabs button:hover:not(:disabled) {
+  border-color: var(--border);
+  background: var(--surface-hover);
+}
+
+.automationSupervision-tabs button[aria-selected="true"] {
+  border-bottom-color: var(--accent);
+  background: transparent;
+  color: var(--text);
+}
+
+.automationSupervision button,
+.automationSupervision input,
+.automationSupervision textarea {
+  min-height: 34px;
+}
+
+.automationSupervision-liveToolbar,
+.automationSupervision-chatToolbar,
+.automationSupervision-paneHeader,
+.automationSupervision-rowHeading,
+.automationSupervision-ruleActions {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.automationSupervision-liveToolbar {
+  min-height: 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+  padding-bottom: 9px;
+}
+
+.automationSupervision-chatToolbar {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  padding: 0 0 9px;
+  margin-bottom: 10px;
+}
+
+.automationSupervision-chatToolbar select {
+  min-width: 180px;
+  max-width: 320px;
+}
+
+.automationSupervision-modeSwitch {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.automationSupervision-modeSwitch button {
+  border: 0;
+  border-right: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--surface);
+}
+
+.automationSupervision-modeSwitch button:last-child {
+  border-right: 0;
+}
+
+.automationSupervision-modeSwitch button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+.automationSupervision-connectionDot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.automationSupervision-connection-connected {
+  background: var(--success);
+}
+
+.automationSupervision-connection-connecting {
+  background: var(--accent);
+}
+
+.automationSupervision-connection-error {
+  background: var(--danger);
+}
+
+.automationSupervision-liveGrid,
+.automationSupervision-chatGrid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(360px, 1.1fr) minmax(360px, 0.9fr);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.automationSupervision-pane {
+  min-width: 0;
+  background: var(--surface);
+}
+
+.automationSupervision-liveGrid > .automationSupervision-pane:first-child,
+.automationSupervision-chatGrid > .automationSupervision-pane:first-child {
+  border-right: 1px solid var(--border);
+}
+
+.automationSupervision-paneHeader {
+  min-height: 43px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-muted);
+  padding: 7px 10px;
+}
+
+.automationSupervision-paneHeader button {
+  min-height: 30px;
+}
+
+.automationSupervision-timeline,
+.automationSupervision-requestList,
+.automationSupervision-transcript,
+.automationSupervision-previewList,
+.automationSupervision-ruleList,
+.automationSupervision-auditList,
+.automationSupervision-traceList {
+  max-height: calc(100vh - 260px);
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.automationSupervision-event {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 18px minmax(0, 1fr);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 11px 10px 7px;
+}
+
+.automationSupervision-eventRail {
+  position: relative;
+}
+
+.automationSupervision-eventRail::after {
+  position: absolute;
+  top: 14px;
+  bottom: -11px;
+  left: 8px;
+  width: 1px;
+  background: var(--border);
+  content: "";
+}
+
+.automationSupervision-event:last-child .automationSupervision-eventRail::after {
+  display: none;
+}
+
+.automationSupervision-eventRail span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.automationSupervision-eventBody {
+  min-width: 0;
+}
+
+.automationSupervision-rowHeading strong {
+  min-width: 0;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.automationSupervision-badge {
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.2;
+  padding: 3px 6px;
+}
+
+.automationSupervision-tone-active {
+  border-color: #6d8297;
+  color: #526d86;
+}
+
+.automationSupervision-tone-success {
+  border-color: #6f8a72;
+  color: var(--success);
+}
+
+.automationSupervision-tone-warning {
+  border-color: #9a8155;
+  color: #886d3f;
+}
+
+.automationSupervision-tone-danger {
+  border-color: #a46e68;
+  color: var(--danger);
+}
+
+.automationSupervision-tone-ready,
+.automationSupervision-tone-result {
+  border-color: #6f8a72;
+  color: var(--success);
+}
+
+.automationSupervision-tone-review {
+  border-color: #6d8297;
+  color: #526d86;
+}
+
+.automationSupervision-tone-blocked {
+  border-color: #a46e68;
+  color: var(--danger);
+}
+
+.automationSupervision-tone-waiting {
+  border-color: var(--border-strong);
+  color: var(--muted);
+}
+
+.automationSupervision-dependencies {
+  overflow-wrap: anywhere;
+}
+
+.automationSupervision-meta {
+  margin-top: 5px;
+}
+
+.automationSupervision pre {
+  max-height: 180px;
+  margin: 7px 0 0;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.45;
+  padding: 7px 8px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.automationSupervision-reviewFields {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.75fr) minmax(220px, 1.25fr);
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  padding: 9px 10px;
+}
+
+.automationSupervision-reviewFields label,
+.automationSupervision-chatForm label,
+.automationSupervision-auditFilters label {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationSupervision-reviewFields input,
+.automationSupervision-chatForm textarea,
+.automationSupervision-auditFilters input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  margin-top: 4px;
+}
+
+.automationSupervision-request,
+.automationSupervision-rule,
+.automationSupervision-previewRow,
+.automationSupervision-auditRow,
+.automationSupervision-traceAction {
+  border-bottom: 1px solid var(--border);
+  padding: 10px;
+}
+
+.automationSupervision-traceAction-live {
+  border-left: 3px solid var(--accent);
+  background: var(--surface-muted);
+}
+
+.automationSupervision-traceStages {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 9px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.automationSupervision-traceStage {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+  border-left: 2px solid var(--border-strong);
+  background: var(--surface-muted);
+  padding: 4px 6px;
+}
+
+.automationSupervision-traceStage span {
+  color: var(--text);
+  font-size: 10px;
+}
+
+.automationSupervision-traceStage small {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.automationSupervision-traceStage-active {
+  border-left-color: var(--accent);
+}
+
+.automationSupervision-traceStage-success {
+  border-left-color: var(--success);
+}
+
+.automationSupervision-traceStage-danger {
+  border-left-color: var(--danger);
+}
+
+.automationSupervision-traceDraft {
+  min-width: 0;
+  margin-top: 8px;
+}
+
+.automationSupervision-traceDraft > span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.automationSupervision-tracePayload {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.automationSupervision-tracePayload > div {
+  min-width: 0;
+}
+
+.automationSupervision-tracePayload span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.automationSupervision-inlineDecision {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.automationSupervision-kv {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 4px 8px;
+  margin: 8px 0 0;
+  font-size: 11px;
+}
+
+.automationSupervision-kv dt {
+  color: var(--muted);
+}
+
+.automationSupervision-kv dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.automationSupervision-decisionBar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 9px;
+}
+
+.automationSupervision-decision {
+  min-width: 0;
+  padding: 6px 7px;
+}
+
+.automationSupervision-decision-primary,
+.automationSupervision-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.automationSupervision-decision-danger {
+  color: var(--danger);
+}
+
+.automationSupervision-transcript {
+  min-height: 240px;
+  padding: 10px;
+}
+
+.automationSupervision-chatTurn {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 8px;
+  margin-bottom: 9px;
+}
+
+.automationSupervision-chatTurn > span {
+  color: var(--muted);
+  font-size: 10px;
+  padding-top: 6px;
+  text-align: right;
+}
+
+.automationSupervision-chatTurn > div {
+  border-left: 3px solid var(--border);
+  background: var(--surface-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 6px 8px;
+  white-space: pre-wrap;
+}
+
+.automationSupervision-chatTurn-assistant > div {
+  border-left-color: var(--accent);
+}
+
+.automationSupervision-chatForm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: end;
+  border-top: 1px solid var(--border);
+  padding: 10px;
+}
+
+.automationSupervision-chatForm textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+
+.automationSupervision-chatForm button {
+  min-width: 88px;
+}
+
+.automationSupervision-reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.automationSupervision-reasons span {
+  border-left: 2px solid #9a8155;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 10px;
+  padding: 3px 6px;
+}
+
+.automationSupervision-ruleActions {
+  margin-top: 8px;
+}
+
+.automationSupervision-ruleActions button {
+  margin-left: auto;
+}
+
+.automationSupervision-auditFilters {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(130px, 1fr));
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  padding: 10px;
+}
+
+.automationSupervision-auditActions {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.automationSupervision-auditHeader {
+  border-top: 0;
+}
+
+.automationSupervision-empty {
+  color: var(--muted);
+  font-size: 12px;
+  padding: 18px 12px;
+}
+
+@media (max-width: 1180px) {
+  .automationSupervision-liveGrid,
+  .automationSupervision-chatGrid {
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  }
+
+  .automationSupervision-auditFilters {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 861px) {
+  .automationSupervision-tabs {
+    overflow-x: auto;
+  }
+
+  .automationSupervision-tabs button {
+    flex: 0 0 auto;
+  }
+
+  .automationSupervision-liveGrid,
+  .automationSupervision-chatGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .automationSupervision-liveGrid > .automationSupervision-pane:first-child,
+  .automationSupervision-chatGrid > .automationSupervision-pane:first-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .automationSupervision-timeline,
+  .automationSupervision-requestList,
+  .automationSupervision-transcript,
+  .automationSupervision-previewList,
+  .automationSupervision-ruleList,
+  .automationSupervision-auditList,
+  .automationSupervision-traceList {
+    max-height: none;
+  }
+
+  .automationSupervision-auditFilters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .automationSupervision-header > div,
+  .automationSupervision-liveToolbar,
+  .automationSupervision-rowHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .automationSupervision-liveToolbar button {
+    width: 100%;
+  }
+
+  .automationSupervision-reviewFields,
+  .automationSupervision-auditFilters,
+  .automationSupervision-chatForm,
+  .automationSupervision-tracePayload {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .automationSupervision-chatForm button {
+    width: 100%;
+  }
+
+  .automationSupervision-chatToolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .automationSupervision-chatToolbar select,
+  .automationSupervision-chatToolbar > button {
+    width: 100%;
+    max-width: none;
+  }
+
+  .automationSupervision-decisionBar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .automationSupervision-auditActions {
+    grid-column: 1;
+    justify-content: stretch;
+  }
+
+  .automationSupervision-auditActions button {
+    flex: 1 1 120px;
+  }
+}

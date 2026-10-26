@@ -1,0 +1,505 @@
+.crmJobsTopActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.crmJobsLayout {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(420px, 1.1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.crmJobsFilters {
+  display: grid;
+  grid-template-columns: minmax(190px, 1.3fr) 112px 112px minmax(130px, 0.8fr) minmax(120px, 0.7fr) auto;
+  gap: 8px;
+  align-items: end;
+  margin-bottom: 11px;
+}
+
+.crmJobsList {
+  display: grid;
+  gap: 7px;
+}
+
+.crmJobsRow {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  min-height: 102px;
+  gap: 7px;
+  border-color: var(--border);
+  background: var(--surface);
+  padding: 10px;
+  text-align: left;
+}
+
+.crmJobsRow:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+.crmJobsRow[aria-current="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.crmJobsRowHead {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 9px;
+}
+
+.crmJobsRowHead strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.crmJobsStatus {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 20px;
+  padding: 0 6px;
+}
+
+.crmJobsStatus-open {
+  border-color: #a8cbb7;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.crmJobsStatus-closed {
+  border-color: #cfb5a7;
+  background: #f2e9e4;
+  color: #744b38;
+}
+
+.crmJobsStatus-archived {
+  border-color: var(--border-strong);
+  background: var(--surface-muted);
+  color: var(--muted);
+}
+
+.crmJobsRowFields {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.crmJobsRowFields span {
+  max-width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  padding: 2px 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crmJobsRowRequirements {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crmJobsPager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 11px;
+  padding-top: 11px;
+}
+
+.crmJobsPager > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.crmJobsPager > div {
+  display: flex;
+  gap: 7px;
+}
+
+.crmJobsEditor {
+  display: grid;
+  min-width: 0;
+  gap: 11px;
+}
+
+.crmJobsFieldGrid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.crmJobsTextGrid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.crmJobsSection {
+  display: grid;
+  min-width: 0;
+  gap: 10px;
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 0;
+  padding: 12px 0 0;
+}
+
+.crmJobsSection:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.crmJobsSection legend {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 650;
+  padding: 0 7px 0 0;
+}
+
+.crmJobsStatusOutput {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--surface-muted);
+  padding: 7px 9px;
+}
+
+.crmJobsRequirementPreview {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.crmJobsRequirementPreview > span:not(.status) {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 3px 6px;
+}
+
+.crmJobsFormActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.crmJobsDetail {
+  display: grid;
+  min-width: 0;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 14px;
+  padding-top: 13px;
+}
+
+.crmJobsDetail h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.crmJobsDetailHead {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.crmJobsDetail dl {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 7px 10px;
+  margin: 0;
+}
+
+.crmJobsDetail dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.crmJobsDetail dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.crmJobsStatusActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.crmJobsProvenance {
+  display: grid;
+  min-width: 0;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.crmJobsProvenanceList {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.crmJobsProvenanceRow {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+  border-left: 3px solid var(--border-strong);
+  background: var(--surface-muted);
+  padding: 9px 10px;
+}
+
+.crmJobsProvenanceRow > div {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.crmJobsProvenanceRow > div span {
+  color: var(--muted);
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.crmJobsProvenanceRow dl {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 5px 9px;
+  margin: 0;
+}
+
+.crmJobsProvenanceRow dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.crmJobsProvenanceRow dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+}
+
+.crmJobsRevisions {
+  display: grid;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.crmJobsRevisionHead,
+.crmJobsRevisionHead > div,
+.crmJobsRevisionRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crmJobsRevisionHead {
+  justify-content: space-between;
+}
+
+.crmJobsRevisionHead h4,
+.crmJobsRevisionDetail h5 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.crmJobsRevisionHead span,
+.crmJobsRevisionRow small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.crmJobsRevisionList {
+  display: grid;
+  gap: 6px;
+}
+
+.crmJobsRevisionRow {
+  min-width: 0;
+}
+
+.crmJobsRevisionRow > button:first-child {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 2px;
+  border-color: var(--border);
+  background: var(--surface);
+  text-align: left;
+}
+
+.crmJobsRevisionRow > button:first-child span,
+.crmJobsRevisionRow > button:first-child small {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.crmJobsRevisionCompare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  gap: 8px;
+  align-items: end;
+}
+
+.crmJobsRevisionDetail {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  padding: 10px;
+}
+
+.crmJobsRevisionDetail dl {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 6px 10px;
+  margin: 10px 0 0;
+}
+
+.crmJobsRevisionDetail dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.crmJobsRevisionDetail dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1080px) {
+  .crmJobsFilters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .crmJobsFilters button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .crmJobsLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 430px) {
+  .crmJobsTopActions,
+  .crmJobsFormActions,
+  .crmJobsStatusActions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .crmJobsTopActions button,
+  .crmJobsFormActions button,
+  .crmJobsStatusActions button {
+    width: 100%;
+  }
+
+  .crmJobsLayout,
+  .crmJobsFilters,
+  .crmJobsFieldGrid,
+  .crmJobsTextGrid,
+  .crmJobsRevisionCompare,
+  .crmJobsProvenanceRow dl,
+  .crmJobsRevisionDetail dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .crmJobsRevisionHead,
+  .crmJobsRevisionRow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .crmJobsRevisionHead button,
+  .crmJobsRevisionRow > button {
+    width: 100%;
+  }
+
+  .crmJobsRow {
+    min-height: 116px;
+  }
+
+  .crmJobsRowHead {
+    display: grid;
+  }
+
+  .crmJobsStatus {
+    justify-self: start;
+  }
+
+  .crmJobsRowRequirements {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .crmJobsPager {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .crmJobsPager > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .crmJobsDetailHead {
+    display: grid;
+  }
+
+  .crmJobsDetail dl {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+
+  .crmJobsDetail dd {
+    margin-bottom: 5px;
+  }
+}

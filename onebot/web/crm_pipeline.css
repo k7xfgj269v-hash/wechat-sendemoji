@@ -1,0 +1,571 @@
+.crmPipelineView-root {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.crmPipelineView-controls {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.85fr) minmax(520px, 1.15fr);
+  gap: 12px;
+  align-items: end;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+.crmPipelineView-filterForm,
+.crmPipelineView-createForm {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+  align-items: end;
+}
+
+.crmPipelineView-filterForm {
+  grid-template-columns: minmax(180px, 1fr) minmax(150px, 0.8fr) auto;
+}
+
+.crmPipelineView-createForm {
+  grid-template-columns: minmax(180px, 1fr) minmax(190px, 1fr) minmax(130px, 0.7fr) auto;
+}
+
+.crmPipelineView-formActions,
+.crmPipelineView-transitionActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.crmPipelineView-transitionActions [data-terminal="true"] {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.crmPipelineView-boardRegion {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.crmPipelineView-boardHeading {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-hover);
+  padding: 9px 12px;
+}
+
+.crmPipelineView-boardHeading > div {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.crmPipelineView-boardHeading h3,
+.crmPipelineView-notesHeading h3 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.crmPipelineView-boardHeading span,
+.crmPipelineView-notesHeading span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.crmPipelineView-boardScroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+
+.crmPipelineView-stageGrid {
+  display: grid;
+  min-width: 1540px;
+  grid-template-columns: repeat(7, minmax(220px, 1fr));
+  align-items: stretch;
+}
+
+.crmPipelineView-stage {
+  min-width: 0;
+  min-height: 320px;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.crmPipelineView-stage:last-child {
+  border-right: 0;
+}
+
+.crmPipelineView-stage > header {
+  display: flex;
+  min-height: 43px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-top: 3px solid var(--border-strong);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+}
+
+.crmPipelineView-stage > header h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.crmPipelineView-stage > header span {
+  min-width: 24px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 19px;
+  padding: 0 5px;
+  text-align: center;
+}
+
+.crmPipelineView-stage-sourced > header {
+  border-top-color: #84766a;
+}
+
+.crmPipelineView-stage-screening > header {
+  border-top-color: #5d7894;
+}
+
+.crmPipelineView-stage-interview > header {
+  border-top-color: #8b6f9e;
+}
+
+.crmPipelineView-stage-offer > header {
+  border-top-color: #aa7b2f;
+}
+
+.crmPipelineView-stage-hired > header {
+  border-top-color: var(--success);
+}
+
+.crmPipelineView-stage-rejected > header {
+  border-top-color: var(--danger);
+}
+
+.crmPipelineView-stage-withdrawn > header {
+  border-top-color: #7f827c;
+}
+
+.crmPipelineView-stageLeads {
+  display: grid;
+}
+
+.crmPipelineView-lead {
+  display: grid;
+  width: 100%;
+  min-height: 86px;
+  gap: 3px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--surface);
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.crmPipelineView-lead:hover:not(:disabled) {
+  border-color: var(--border);
+  background: var(--surface-hover);
+}
+
+.crmPipelineView-lead[aria-current="true"] {
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.crmPipelineView-lead strong,
+.crmPipelineView-jobTitle {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crmPipelineView-lead strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.crmPipelineView-jobTitle,
+.crmPipelineView-leadMeta {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.crmPipelineView-leadMeta {
+  display: flex;
+  min-width: 0;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.crmPipelineView-leadMeta span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crmPipelineView-emptyStage,
+.crmPipelineView-emptyNotes {
+  color: var(--subtle);
+  font-size: 12px;
+  padding: 14px 10px;
+}
+
+.crmPipelineView-detail,
+.crmPipelineView-detailEmpty {
+  min-width: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-top: 14px;
+  background: var(--surface);
+}
+
+.crmPipelineView-detail {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.8fr) minmax(380px, 1.2fr);
+}
+
+.crmPipelineView-detailEmpty {
+  display: grid;
+  gap: 3px;
+  color: var(--muted);
+  padding: 18px 2px;
+}
+
+.crmPipelineView-detailEmpty strong {
+  color: var(--text);
+}
+
+.crmPipelineView-detailSummary,
+.crmPipelineView-notes {
+  min-width: 0;
+  padding: 14px;
+}
+
+.crmPipelineView-detailSummary {
+  border-right: 1px solid var(--border);
+}
+
+.crmPipelineView-detailHeading,
+.crmPipelineView-notesHeading {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.crmPipelineView-detailHeading > div {
+  min-width: 0;
+}
+
+.crmPipelineView-detailHeading h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.crmPipelineView-detailHeading p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.crmPipelineView-detailHeading > span {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 3px 6px;
+}
+
+.crmPipelineView-detailSummary dl {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 6px 10px;
+  margin: 12px 0;
+}
+
+.crmPipelineView-detailSummary dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.crmPipelineView-detailSummary dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.crmPipelineView-ownerForm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: end;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.crmPipelineView-transitionArea {
+  display: grid;
+  gap: 7px;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.crmPipelineView-transitionArea > span,
+.crmPipelineView-terminal {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.crmPipelineView-history,
+.crmPipelineView-handoff {
+  display: grid;
+  gap: 7px;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.crmPipelineView-history > div,
+.crmPipelineView-handoff > div,
+.crmPipelineView-history li > div {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.crmPipelineView-history > div > span,
+.crmPipelineView-handoff > div > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.crmPipelineView-history small,
+.crmPipelineView-handoff p,
+.crmPipelineView-history time,
+.crmPipelineView-historyEmpty {
+  color: var(--subtle);
+  font-size: 11px;
+}
+
+.crmPipelineView-history ol {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crmPipelineView-history li {
+  display: grid;
+  gap: 3px;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+}
+
+.crmPipelineView-history li strong,
+.crmPipelineView-history li p,
+.crmPipelineView-handoff p {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.crmPipelineView-history li strong {
+  font-size: 12px;
+}
+
+.crmPipelineView-history time {
+  text-align: right;
+}
+
+.crmPipelineView-history li p {
+  color: var(--muted);
+  white-space: pre-wrap;
+}
+
+.crmPipelineView-handoff strong {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-muted);
+  padding: 2px 5px;
+  font-size: 11px;
+}
+
+.crmPipelineView-handoff button {
+  justify-self: start;
+}
+
+.crmPipelineView-noteList {
+  display: grid;
+}
+
+.crmPipelineView-note {
+  display: grid;
+  gap: 5px;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+
+.crmPipelineView-note > div {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.crmPipelineView-note strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.crmPipelineView-note time {
+  flex: 0 1 auto;
+  color: var(--subtle);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.crmPipelineView-note p {
+  margin: 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.crmPipelineView-noteForm {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.35fr) minmax(220px, 1fr) auto;
+  gap: 8px;
+  align-items: end;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.crmPipelineView-noteForm textarea {
+  min-height: 70px;
+}
+
+@media (max-width: 1120px) {
+  .crmPipelineView-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .crmPipelineView-filterForm,
+  .crmPipelineView-createForm {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .crmPipelineView-createForm button,
+  .crmPipelineView-formActions {
+    align-self: stretch;
+  }
+
+  .crmPipelineView-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .crmPipelineView-detailSummary {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .crmPipelineView-noteForm {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .crmPipelineView-root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .crmPipelineView-filterForm,
+  .crmPipelineView-createForm,
+  .crmPipelineView-ownerForm {
+    grid-template-columns: 1fr;
+  }
+
+  .crmPipelineView-formActions,
+  .crmPipelineView-formActions button,
+  .crmPipelineView-createForm > button,
+  .crmPipelineView-ownerForm > button,
+  .crmPipelineView-noteForm > button {
+    width: 100%;
+  }
+
+  .crmPipelineView-boardHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .crmPipelineView-boardScroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .crmPipelineView-stageGrid {
+    min-width: 1470px;
+    grid-template-columns: repeat(7, 210px);
+  }
+
+  .crmPipelineView-detailSummary,
+  .crmPipelineView-notes {
+    padding: 11px 10px;
+  }
+
+  .crmPipelineView-detailHeading {
+    display: grid;
+  }
+
+  .crmPipelineView-detailHeading > span {
+    justify-self: start;
+  }
+
+  .crmPipelineView-detailSummary dl {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .crmPipelineView-detailSummary dd {
+    margin-bottom: 5px;
+  }
+}

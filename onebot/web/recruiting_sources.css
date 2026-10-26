@@ -1,0 +1,314 @@
+.recruitingSources {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.recruitingSources__topbar,
+.recruitingSources__topbarActions,
+.recruitingSources__organization,
+.recruitingSources__organization > div,
+.recruitingSources__organization form,
+.recruitingSources__panelHead,
+.recruitingSources__formHead,
+.recruitingSources__formHead > div,
+.recruitingSources__rowMain,
+.recruitingSources__meta,
+.recruitingSources__actions,
+.recruitingSources__formActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recruitingSources__topbar {
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+  padding-bottom: 12px;
+}
+
+.recruitingSources__topbar h2 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0;
+}
+
+.recruitingSources__topbar p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.recruitingSources__topbarActions {
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.recruitingSources__organization {
+  min-width: 0;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  margin-bottom: 12px;
+  padding: 11px;
+}
+
+.recruitingSources__organization > div {
+  align-items: baseline;
+  flex: 0 0 auto;
+}
+
+.recruitingSources__organization h3,
+.recruitingSources__panelHead h3,
+.recruitingSources__formHead h3 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.recruitingSources__organization span,
+.recruitingSources__panelHead span,
+.recruitingSources__formHead span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.recruitingSources__organization form {
+  width: min(560px, 100%);
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+.recruitingSources__organization label {
+  flex: 1 1 320px;
+  min-width: 180px;
+}
+
+.recruitingSources__workspace {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(360px, 1.05fr) minmax(330px, 0.95fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.recruitingSources__panel {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.recruitingSources__panelHead,
+.recruitingSources__formHead {
+  min-height: 45px;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-hover);
+  padding: 9px 11px;
+}
+
+.recruitingSources__formHead > div {
+  align-items: baseline;
+}
+
+.recruitingSources__list {
+  display: grid;
+  max-height: calc(100vh - 290px);
+  min-height: 220px;
+  overflow-y: auto;
+}
+
+.recruitingSources__row {
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 11px;
+}
+
+.recruitingSources__row:last-child {
+  border-bottom: 0;
+}
+
+.recruitingSources__rowMain {
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.recruitingSources__rowMain > div {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.recruitingSources__rowMain strong {
+  min-width: 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.recruitingSources__rowMain div > span {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.recruitingSources__badge {
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-height: 24px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.recruitingSources__badge--enabled {
+  border-color: #9fcbb0;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.recruitingSources__badge--disabled {
+  background: var(--surface-muted);
+  color: var(--muted);
+}
+
+.recruitingSources__meta {
+  min-width: 0;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.recruitingSources__meta span + span::before {
+  content: "/";
+  margin-right: 8px;
+  color: var(--border-strong);
+}
+
+.recruitingSources__actions {
+  flex-wrap: wrap;
+}
+
+.recruitingSources__actions button {
+  min-width: 64px;
+}
+
+.recruitingSources__form {
+  display: grid;
+  min-width: 0;
+  gap: 10px;
+  padding-bottom: 12px;
+}
+
+.recruitingSources__form > label,
+.recruitingSources__formActions {
+  margin-right: 11px;
+  margin-left: 11px;
+}
+
+.recruitingSources__form > label:first-of-type {
+  margin-top: 1px;
+}
+
+.recruitingSources__form input,
+.recruitingSources__form select {
+  min-width: 0;
+}
+
+.recruitingSources__toggle {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 10px;
+  color: var(--text);
+}
+
+.recruitingSources__toggle input {
+  width: 16px;
+  min-height: 16px;
+  margin: 0;
+}
+
+.recruitingSources__formActions {
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.recruitingSources__empty {
+  display: grid;
+  min-height: 220px;
+  place-items: center;
+  padding: 18px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .recruitingSources__workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .recruitingSources__list {
+    max-height: 440px;
+  }
+}
+
+@media (max-width: 620px) {
+  .recruitingSources__organization,
+  .recruitingSources__organization form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .recruitingSources__organization label {
+    flex-basis: auto;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .recruitingSources__topbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .recruitingSources__topbar button,
+  .recruitingSources__organization button,
+  .recruitingSources__formActions button {
+    width: 100%;
+  }
+
+  .recruitingSources__topbarActions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .recruitingSources__actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .recruitingSources__actions button {
+    min-width: 0;
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+}

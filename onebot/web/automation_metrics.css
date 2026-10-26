@@ -1,0 +1,186 @@
+.automationMetrics {
+  display: grid;
+  min-width: 0;
+  gap: 24px;
+  overflow-wrap: anywhere;
+}
+
+.automationMetrics .automationMetrics-topbar {
+  align-items: center;
+}
+
+.automationMetrics .automationMetrics-topbar button {
+  min-height: 36px;
+}
+
+.automationMetrics .automationMetrics-summary {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 2px solid var(--border-strong);
+  border-bottom: 1px solid var(--border);
+}
+
+.automationMetrics .automationMetrics-summary > div {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  padding: 14px 12px;
+}
+
+.automationMetrics .automationMetrics-summary span,
+.automationMetrics .automationMetrics-heading span,
+.automationMetrics .automationMetrics-queue small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.automationMetrics .automationMetrics-summary strong {
+  min-width: 0;
+  color: var(--text);
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.automationMetrics .automationMetrics-summary strong[data-connected="true"] {
+  color: var(--accent-strong);
+}
+
+.automationMetrics .automationMetrics-section {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+}
+
+.automationMetrics .automationMetrics-heading {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.automationMetrics .automationMetrics-heading h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+.automationMetrics .automationMetrics-queueGrid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.automationMetrics .automationMetrics-queue {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  border-left: 3px solid var(--border-strong);
+  background: var(--surface-muted);
+  padding: 12px;
+}
+
+.automationMetrics .automationMetrics-queue span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationMetrics .automationMetrics-queue strong {
+  color: var(--text);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.automationMetrics .automationMetrics-table {
+  display: grid;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.automationMetrics .automationMetrics-tableHead,
+.automationMetrics .automationMetrics-tableRow {
+  display: grid;
+  min-width: 620px;
+  grid-template-columns: minmax(160px, 1.4fr) repeat(4, minmax(80px, 1fr));
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding: 9px 4px;
+}
+
+.automationMetrics .automationMetrics-tableHead {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.automationMetrics .automationMetrics-tableRow {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.automationMetrics .automationMetrics-actionList {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+.automationMetrics .automationMetrics-actionList > div {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(90px, auto) 44px;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding: 9px 0;
+}
+
+.automationMetrics .automationMetrics-actionList code {
+  min-width: 0;
+  color: var(--text);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.automationMetrics .automationMetrics-actionList span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.automationMetrics .automationMetrics-actionList strong {
+  color: var(--text);
+  font-size: 13px;
+  text-align: right;
+}
+
+.automationMetrics .automationMetrics-empty {
+  color: var(--muted);
+  font-size: 12px;
+  padding: 18px 0;
+}
+
+.automationMetrics button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .automationMetrics .automationMetrics-summary,
+  .automationMetrics .automationMetrics-queueGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .automationMetrics .automationMetrics-summary,
+  .automationMetrics .automationMetrics-queueGrid,
+  .automationMetrics .automationMetrics-actionList {
+    grid-template-columns: 1fr;
+  }
+}
